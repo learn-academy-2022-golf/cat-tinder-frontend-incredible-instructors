@@ -3,8 +3,11 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
+  Button
 } from 'reactstrap'
+import { NavLink } from "react-router-dom"
+
 
 const CatIndex = ({ cats }) => {
   console.log("Cat Index props", cats)
@@ -33,6 +36,12 @@ const CatIndex = ({ cats }) => {
                 >
                   {cat.age}
                 </CardSubtitle>
+                <NavLink to={`/catshow/${cat.id}`} >
+                  <Button>
+                    Learn More
+                  </Button>
+                </NavLink>
+                
               </CardBody>
             </Card>
           </>
