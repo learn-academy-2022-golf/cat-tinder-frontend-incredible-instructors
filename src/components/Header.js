@@ -1,55 +1,42 @@
-import React, { useState } from 'react'
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-} from 'reactstrap'
+import React from "react"
+import { Nav, NavItem } from "reactstrap"
+import { NavLink } from "react-router-dom"
+import catLogo from "../assets/cat-logo.png"
 
-function Header(args) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggle = () => setIsOpen(!isOpen)
-
+const Header = () => {
   return (
-    <div>
-      <Navbar {...args}>
-        <NavbarBrand href="/">Cat Tinder</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
-      </Navbar>
-    </div>
+    <header>
+      <Nav className="header-nav flex-space">
+        <NavItem>
+          <NavLink to="/">
+            <img
+              src={catLogo}
+              alt="Cat Tinder logo with outline of cat"
+              className="cat-logo"
+            />
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/catindex" className="nav-link">
+            Meet the Cats
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/catnew" className="nav-link">
+            Add a New Cat
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <a
+            target="blank"
+            href="https://www.aspca.org/adopt-pet/adoptable-cats-your-local-shelter"
+            className="nav-link"
+          >
+            Adopt a Cat!
+          </a>
+        </NavItem>
+      </Nav>
+    </header>
   )
 }
 
