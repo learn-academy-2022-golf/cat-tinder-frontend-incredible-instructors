@@ -5,7 +5,11 @@ import mockCats from '../mockCats'
 
 describe("<CatIndex />", () => {
   it("renders a card for each cat", () => {
-    render(<CatIndex cats={mockCats}/>)
+    render(
+      <BrowserRouter>
+        <CatIndex cats={mockCats}/>
+      </BrowserRouter>
+    )
 
     mockCats.map((cat)=>{
       const nameElement = screen.getByText(cat.name)
