@@ -1,4 +1,4 @@
-const cats = [
+const mockCats = [
   {
     id: 1,
     name: "Morgan",
@@ -29,4 +29,4 @@ const cats = [
   }
 ]
 
-export default cats
+export default mockCats
